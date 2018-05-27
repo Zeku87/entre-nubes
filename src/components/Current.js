@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Image} from 'react-bootstrap';
+import {Image, Grid, Row, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
-import {fetchWeatherIcon} from '../redux/actions/items'
+import {fetchWeather} from '../redux/actions/items'
 
 class Current extends Component{
 
@@ -23,6 +23,11 @@ class Current extends Component{
     
     }
 
+
+    kelvinToCentigrade(kelvin){
+      return kelvin - 273.15;   
+    }
+
     render(){
         if(this.props.hasErrored)
         {
@@ -41,13 +46,19 @@ class Current extends Component{
             );
         }   
         
-        if(this.props.weatherIcon)
+        if(this.props.weatherConditions.length > 0)
         {
-            const icon = this.state.iconUrlBase.concat(this.props.weatherIcon,".png");
+            const icon = this.state.iconUrlBase.concat(this.props.weatherConditions[0],".png");
             console.log("ICON",icon);
             return(
                 <div className="Current">
                     <Image className="Current_icon" src={icon} responsive/>
+                    <Grid>
+                        <Row>
+                            <Col xs={6}>{this.kelvinToCentigrade(this.props.weatherConditions[2])}º / {this.kelvinToCentigrade(this.props.weatherConditions[3])}º</Col>
+                            <Col xs={6}>{this.props.weatherConditions[1]}</Col>
+                        </Row>
+                    </Grid>
                 </div>
             );
         }
@@ -58,14 +69,14 @@ class Current extends Component{
 
 const mapStateToProps = (state) => {
     return{
-        weatherIcon: state.weatherIcon,
+        weatherConditions: state.weatherConditions,
         hasErrored: state.hasErrored,
         isLoading: state.isLoading
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {fetchData : (url) => dispatch(fetchWeatherIcon(url))};
+    return {fetchData : (url) => dispatch(fetchWeather(url))};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Current);

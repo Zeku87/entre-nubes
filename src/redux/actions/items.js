@@ -12,14 +12,14 @@ export function isLoading(bool){
     }
 }
 
-export function weatherIcon(icon){
+export function weatherConditions(weather){
     return{
-        type: "icon",
-        icon
+        type: "weather",
+        weather
     }
 }
 
-export function fetchWeatherIcon(url){
+export function fetchWeather(url){
     return(dispatch) => {
         dispatch(isLoading(true))
         fetch(url)
@@ -31,8 +31,11 @@ export function fetchWeatherIcon(url){
         })
         .then( response => response.json() )
         .then( response => {
-            console.log("ICON FETCHED: ",response.weather[0].icon)
-            dispatch(weatherIcon(response.weather[0].icon))
+            let weather = [response.weather[0].icon]
+            weather.push(response.weather[0].main)
+            weather.push(response.main.temp_max)
+            weather.push(response.main.temp_min)
+            dispatch(weatherConditions(weather))
             dispatch(isLoading(false))
         })
         .catch(error => {

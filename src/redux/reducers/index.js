@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import { hasErrored, isLoading, weatherIcon} from './items';
+import { hasErrored, isLoading, weatherConditions} from './items';
 
 export default combineReducers({
-    weatherIcon,
+    weatherConditions,
     isLoading,
     hasErrored
 });

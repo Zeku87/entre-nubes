@@ -6,7 +6,7 @@ export function isLoading(state = false, action){
     return action.type === "LOADING" ? action.isLoading : state
 }
 
-export function weatherIcon( state = "04d", action) //icono soleado por defecto
+export function weatherConditions( state = [], action) //icono soleado por defecto
 {
-    return action.type === "icon" ? action.icon : state
+    return action.type === "weather" ? action.weather : state
 }
