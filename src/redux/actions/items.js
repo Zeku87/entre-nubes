@@ -12,35 +12,70 @@ export function isLoading(bool){
     }
 }
 
-export function weatherConditions(weather){
+export function weather(weather){
     return{
         type: "weather",
         weather
     }
 }
 
+export function city(cityName){
+    console.log("CITY ACTION:", cityName);
+    return{
+        type: "city",
+        cityName
+    }
+}
+
+
 export function fetchWeather(url){
     return(dispatch) => {
         dispatch(isLoading(true))
-        fetch(url)
-        .then((response) => {
-            if( !response.ok ){
-                throw Error(response.statusText)
-            }
-            return response;
-        })
-        .then( response => response.json() )
-        .then( response => {
-            let weather = [response.weather[0].icon]
-            weather.push(response.weather[0].main)
-            weather.push(response.main.temp_max)
-            weather.push(response.main.temp_min)
-            dispatch(weatherConditions(weather))
-            dispatch(isLoading(false))
-        })
-        .catch(error => {
-            console.log("ERROR: ",error)
-            dispatch(hasErrored(true))
-        })
+        
+        const getPosition = (options) => {
+            return new Promise( (resolve, reject) => {
+              navigator.geolocation.getCurrentPosition(resolve, reject, options);
+            });
+        }
+          
+        getPosition()
+            .then((position) => {
+              console.log(position.coords);
+              const longitude = position.coords.longitude
+              const latitude = position.coords.latitude
+              //const appid = "<Inserta tu clave aquí>";
+              url += latitude + "&lon=" + longitude + "&appid=" + appid;
+              console.log("URL ",url);
+              fetch(url) //segunda promesa
+                .then((response) => {
+                    if( !response.ok ){
+                        throw Error(response.statusText)
+                    }
+                    return response;
+                })
+                .then( response => response.json() )
+                .then( response => {
+
+                    const weatherInfo = {
+                        icon: response.weather[0].icon,
+                        conditions: response.weather[0].main,
+                        tempMax: response.main.temp_max,
+                        tempMin: response.main.temp_min, 
+                    }
+
+                    const cityName = response.name
+                    
+                    dispatch(weather(weatherInfo))
+                    dispatch(city(cityName))
+                    dispatch(isLoading(false))
+                })
+                .catch(error => {
+                    console.log("ERROR: ",error)
+                    dispatch(hasErrored(true))
+                })
+            })
+            .catch((err) => {
+              console.error(err.message);
+            })
     }
 }

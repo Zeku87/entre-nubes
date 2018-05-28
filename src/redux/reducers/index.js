@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
-import { hasErrored, isLoading, weatherConditions} from './items';
+import { hasErrored, isLoading, weather, city} from './items';
 
 export default combineReducers({
-    weatherConditions,
+    weather,
+    city,
     isLoading,
     hasErrored
 });
