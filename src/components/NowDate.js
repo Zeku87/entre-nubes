@@ -65,12 +65,12 @@ export default class NowDate extends Component{
         return(
             <div className="container-fluid">
                 <Grid>
-                    <Row className="showGrid">
-                        <Col xs={6}>
-                        <p>{this.state.hora}:{this.state.minutos}:{this.state.segundos}</p>
+                    <Row>
+                        <Col className="NowDate_time" xs={6}>
+                        <h2>{this.state.hora}:{this.state.minutos}:{this.state.segundos}</h2>
                         </Col>
-                        <Col xs={6}>
-                            {this.mostrarFecha()}
+                        <Col className="NowDate_date" xs={6}>
+                            <h3>{this.mostrarFecha()}</h3>
                         </Col>
                     </Row>
                 </Grid>

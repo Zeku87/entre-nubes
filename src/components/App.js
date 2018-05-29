@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <NowDate/>
         <Current weather={this.props.weather}/>
         <Location city={this.props.city} />

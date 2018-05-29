@@ -1,5 +1,45 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+  background-color:black;
+  color: white;
+}
+
+/**********************************/
+/********* NowDate Component ******/
+/**********************************/
+.NowDate_date{
+  text-align: right;
+}
+
+/**********************************/
+/********* Current Component ******/
+/**********************************/
+
+.Current_icon{
+  margin: auto;
+  width: 360px; 
+}
+
+.Current_temp_max{
+  display: inline;
+}
+
+.Current_temp_min{
+  display: inline;
+}
+
+.Current_conditions{
+  text-align: right;
+  text-transform: uppercase;
+}
+
+/**********************************/
+/********* Location Component ******/
+/**********************************/
+
+.Location_city{
+  text-align: left;
+  text-transform: uppercase;
 }
