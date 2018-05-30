@@ -12,15 +12,15 @@ export default class NowDate extends Component{
             segundos:0
         }
 
-        this.mostrarHora = this.mostrarHora.bind(this);
-        this.mostrarFecha = this.mostrarFecha.bind(this);
+        this.mostrarHora = this.mostrarHora.bind(this)
+        this.mostrarFecha = this.mostrarFecha.bind(this)
     }
 
     mostrarHora(){
-        const fecha = new Date();
-        const hora = fecha.getHours();
-        const minutos = fecha.getMinutes();
-        const segundos = fecha.getSeconds();
+        const fecha = new Date()
+        const hora = fecha.getHours()
+        const minutos = fecha.getMinutes()
+        const segundos = fecha.getSeconds()
 
         this.setState({
             hora,
@@ -32,10 +32,10 @@ export default class NowDate extends Component{
     }
 
     mostrarFecha(){
-        const fecha = new Date();
-        const dia = fecha.getDate();
-        const mes = this.obtenerMes(fecha.getMonth());
-        return <p>{dia} {mes}</p>;
+        const fecha = new Date()
+        const dia = fecha.getDate()
+        const mes = this.obtenerMes(fecha.getMonth())
+        return <h3>{dia} {mes}</h3>
     }
 
     obtenerMes(mes){
@@ -57,9 +57,23 @@ export default class NowDate extends Component{
     }
 
     componentDidMount(){
-        this.timer = setInterval(()=>this.mostrarHora(), 1000);
+        this.timer = setInterval(()=>this.mostrarHora(), 1000)
     }
 
+    getDigitalFormat(){
+        let hora = this.state.hora
+        let minutos = this.state.minutos
+        let segundos = this.state.segundos
+
+        if(this.state.hora < 10)
+            hora = "0" + this.state.hora
+        if(this.state.minutos < 10)
+            minutos = "0" + this.state.minutos
+        if(this.state.segundos < 10)
+            segundos = "0" + this.state.segundos
+            
+        return <h2>{hora}:{minutos}:{segundos}</h2>
+    }
 
     render(){
         return(
@@ -67,10 +81,10 @@ export default class NowDate extends Component{
                 <Grid>
                     <Row>
                         <Col className="NowDate_time" xs={6}>
-                        <h2>{this.state.hora}:{this.state.minutos}:{this.state.segundos}</h2>
+                            {this.getDigitalFormat()}
                         </Col>
                         <Col className="NowDate_date" xs={6}>
-                            <h3>{this.mostrarFecha()}</h3>
+                            {this.mostrarFecha()}
                         </Col>
                     </Row>
                 </Grid>
