@@ -6,16 +6,103 @@ body {
   color: white;
 }
 
+/***********************************/
+/********** App Component **********/
+/***********************************/
+
+.App{
+  height: 100%;
+}
+
+.clear-sky{
+  background-color: #E5C851;
+}
+
+.clear-sky-night{
+  background-color: rgb(51, 51, 51);
+}
+
+.few-clouds{
+  background-color: rgb(145, 183, 255);
+}
+
+.few-clouds-night{
+  background-color: rgb(51, 51, 51);
+}
+
+.scattered-clouds{
+  background-color: rgb(190, 190, 190);
+}
+
+.scattered-clouds-night{
+  background-color: rgb(51, 51, 51);
+}
+
+.broken-clouds{
+  background-color: rgb(119, 119, 119);
+}
+
+.broken-clouds-night{
+  background-color: rgb(51, 51, 51);
+}
+
+.shower-rain{
+  background-color:cornflowerblue;
+}
+
+.shower-rain-night{
+  background-color: navy;
+}
+
+.rain{
+  background-color: blue;
+}
+
+.rain-night{
+  background-color: navy;
+}
+
+.thunderstorm{
+  background-color: blueviolet;
+}
+
+.thunderstorm-night{
+  background-color: blueviolet;
+}
+
+.snow{
+ background-color: aliceblue;
+}
+
+.snow-night{
+ background-color: #195FA5
+}
+
+.mist{
+background-color: #CCCCCC;
+}
+
+.mist-night{
+background-color: #CCCCCC;
+}
+
+
+
 /**********************************/
 /********* NowDate Component ******/
 /**********************************/
 .NowDate_date{
+  height: 20%;
   text-align: right;
 }
 
 /**********************************/
 /********* Current Component ******/
 /**********************************/
+
+.Current{
+  height: 60%;
+}
 
 .Current_icon{
   margin: auto;
@@ -39,7 +126,14 @@ body {
 /********* Location Component ******/
 /**********************************/
 
+.Location{
+  margin-top: 15px;
+  border-top: solid 2px white;
+
+}
+
 .Location_city{
+  height: 20%;
   text-align: left;
   text-transform: uppercase;
 }

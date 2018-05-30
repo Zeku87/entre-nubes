@@ -4,7 +4,7 @@ import {Grid, Row, Col} from 'react-bootstrap'
 export default class Location extends Component{    
     render(){
         return(
-            <div className="Location container">
+            <div className="Location container-fluid">
                 <Grid>
                     <Row>
                         <Col xs={12}>
