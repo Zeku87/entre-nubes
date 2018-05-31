@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-[Español](información-de-la-app)
-[English](info-about-this-app)
+[Español](#información-de-la-app)
+[English](#info-about-this-app)
 
 ## Información de la app
 
