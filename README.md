@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Para hacerlo funcionar haga lo siguiente:
 
 > git clone https://github.com/Zeku87/entre-nubes.git
+
 > cd entre-nubes/
+
 > npm install
 
 Ahora diríjase al fichero
@@ -27,7 +29,7 @@ Para compilar y ejecutar la aplicación en el explorador
 
 Para obtener los ficheros de producción
 
->npm build
+>npm run build
 
 ¿Alguna cosa que decir?
 Puedes contactar conmigo en cualquier momento mandándome un email a joseezequiel.gallardo@gmail.com
@@ -37,7 +39,9 @@ Puedes contactar conmigo en cualquier momento mandándome un email a joseezequie
 To make it work do the following
 
 > git clone https://github.com/Zeku87/entre-nubes.git
+
 > cd entre-nubes/
+
 > npm install
 
 Now go to ./src/redux/actions/item.js and open the file
@@ -52,7 +56,7 @@ To compile and get the app running in the browser
 
 To obtain production version
 
-> npm build
+> npm run build
 
 Let's stay in touch!
 If you have any question you can reach me at joseezequiel.gallardo@gmail.com
