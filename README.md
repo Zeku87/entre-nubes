@@ -1,6 +1,63 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
+[Español](información-de-la-app)
+[English](info-about-this-app)
+
+## Información de la app
+
+Para hacerlo funcionar haga lo siguiente:
+
+> git clone https://github.com/Zeku87/entre-nubes.git
+> cd entre-nubes/
+> npm install
+
+Ahora diríjase al fichero
+
+./src/redux/actions/item.js
+
+introduce tu clave para usar la API de [Open Weather Map](https://openweathermap.org/) en la variable appid que se encuentra en la línea 46. La que se encuentra actualmente asignada es la clave que provee por defecto la API en los ejemplos de uso, por lo tanto no es fiable si quieres hacer tu propia aplicación a partir de este repositorio.
+
+Ve a [Open Weather Map](https://openweathermap.org/) y [date de alta](https://home.openweathermap.org/users/sign_up). Conseguir la clave es gratuita.
+Igualmente puedes [consultar las APIs](https://openweathermap.org/api) para documentarte y ver los [planes de cada una](https://openweathermap.org/price). 
+
+
+Para compilar y ejecutar la aplicación en el explorador
+
+> npm start
+
+Para obtener los ficheros de producción
+
+>npm build
+
+¿Alguna cosa que decir?
+Puedes contactar conmigo en cualquier momento mandándome un email a joseezequiel.gallardo@gmail.com
+
+## Info about this app
+
+To make it work do the following
+
+> git clone https://github.com/Zeku87/entre-nubes.git
+> cd entre-nubes/
+> npm install
+
+Now go to ./src/redux/actions/item.js and open the file
+
+In line 46, you should assign your own [Open Weather Map API Key](https://openweathermap.org/) because the one that is already assigned is provided by default for usage examples so is not trusty if you want to create your own app.
+
+You can get all the information in [Open Weather Map](https://openweathermap.org/). You can [sign up](https://home.openweathermap.org/users/sign_up) to get your key and [read the doc](https://openweathermap.org/api) about the available APIs. [Some are free and some are paid APIs](https://openweathermap.org/price) 
+
+To compile and get the app running in the browser
+
+> npm start
+
+To obtain production version
+
+> npm build
+
+Let's stay in touch!
+If you have any question you can reach me at joseezequiel.gallardo@gmail.com
+
+Below you will find some information on how to perform common tasks with create-react-app.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
