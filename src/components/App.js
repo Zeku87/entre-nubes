@@ -13,8 +13,11 @@ class App extends Component {
     super(props)
 
     this.state = {
-      url : "http://api.openweathermap.org/data/2.5/weather?lat="
+      url : "http://api.openweathermap.org/data/2.5/forecast?lat="
     }
+
+    this.getClassNameKeys = this.getClassNameKeys.bind(this)
+  
   }
 
   componentDidMount(){

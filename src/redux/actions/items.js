@@ -40,13 +40,14 @@ export function fetchWeather(url){
           
         getPosition()
             .then((position) => {
-              console.log(position.coords);
               const longitude = position.coords.longitude
               const latitude = position.coords.latitude
               //const appid = "<Inserta tu clave aquí>";
+              const appid = "ac40fa4914a844cbb43379bcbab81383"
               url += latitude + "&lon=" + longitude + "&appid=" + appid;
-              console.log("URL ",url);
-              fetch(url) //segunda promesa
+
+              //Petición de la situación meteorológica (segunda promesas)
+              fetch(url)
                 .then((response) => {
                     if( !response.ok ){
                         throw Error(response.statusText)
@@ -55,15 +56,15 @@ export function fetchWeather(url){
                 })
                 .then( response => response.json() )
                 .then( response => {
-
+                    console.log("Action Creator: ", response.list[0])
                     const weatherInfo = {
-                        icon: response.weather[0].icon,
-                        conditions: response.weather[0].main,
-                        tempMax: response.main.temp_max,
-                        tempMin: response.main.temp_min, 
+                        icon: response.list[0].weather[0].icon,
+                        conditions: response.list[0].weather[0].main,
+                        tempMax: response.list[0].main.temp,
+                        tempMin: response.list[0].main.temp_min, 
                     }
 
-                    const cityName = response.name
+                    const cityName = response.city.name
                     
                     dispatch(weather(weatherInfo))
                     dispatch(city(cityName))
