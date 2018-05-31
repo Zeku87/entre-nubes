@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 
 export default class NowDate extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
 
         this.state={
             fecha:0,

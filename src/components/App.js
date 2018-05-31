@@ -5,6 +5,7 @@ import {fetchWeather} from '../redux/actions/items'
 import NowDate from './NowDate'
 import Current from './Current'
 import Location from './Location'
+import ForecastList from './ForecastList'
 
 import './App.css'
 
@@ -55,13 +56,31 @@ class App extends Component {
 
     const classNames = this.getClassNameKeys()
 
-    return (
-      <div className={classNames}>
-        <NowDate/>
-        <Current weather={this.props.weather}/>
-        <Location city={this.props.city} />
+    if(this.props.isLoading){
+     return( 
+        <div>
+          <p>Loading</p>
+          <NowDate/>
+        </div>
+     )
+
+    }
+    if(this.props.weather){
+      return (
+      <div>  
+        <div className={classNames}>
+          <NowDate/>
+          <Current weather={this.props.weather}/>
+          <Location city={this.props.city} />
+        </div>
+        <div className="App_forecast">
+          <ForecastList forecast={this.props.forecast}/>
+        </div>
       </div>
-    );
+      )
+    }
+
+    return <p>.-.-.-.-.-.</p>
   }
 }
 
@@ -70,6 +89,7 @@ const mapStateToProps = (state) => {
     isLoading: state.isLoading,
     hasErrored: state.hasErrored,
     weather : state.weather,
+    forecast: state.forecast,
     city: state.city
   }
 }

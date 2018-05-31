@@ -122,9 +122,9 @@ background-color: #CCCCCC;
   text-transform: uppercase;
 }
 
-/**********************************/
+/***********************************/
 /********* Location Component ******/
-/**********************************/
+/***********************************/
 
 .Location{
   margin-top: 15px;
@@ -136,4 +136,20 @@ background-color: #CCCCCC;
   height: 20%;
   text-align: left;
   text-transform: uppercase;
+}
+
+/*******************************************/
+/********* ForecastListItem Component ******/
+/*******************************************/
+
+.ForecastListItem{
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px; 
+}
+
+.ForecastListItem img{
+  margin: auto;
 }
